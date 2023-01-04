@@ -1,0 +1,22 @@
+#! /usr/bin/env sh
+
+echo "Running without privileges..."
+docker run --rm guygastineau/haskell-privilege-test:latest
+
+if [ "$?" -eq 0 ]; then
+    echo "The container WORKED without the privileged flag!"
+    exit 0
+fi
+
+echo "The container FAILED without the privileged flag!"
+
+echo "Running with privileges..."
+docker run --rm --privileged guygastineau/haskell-privilege-test:latest
+
+if [ "$?" -eq 0 ]; then
+    echo "The container requires the privileged flag in your environment!"
+    exit 0
+fi
+
+echo "The container FAILED to run AT ALL!"
+exit 1

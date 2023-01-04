@@ -1,0 +1,4 @@
+#! /usr/bin/env sh
+
+docker tag haskell-privilege-test:latest guygastineau/haskell-privilege-test:latest
+docker push guygastineau/haskell-privilege-test:latest

@@ -1,0 +1,4 @@
+#! /usr/bin/env sh
+
+ghc -O2 -o hello -threaded -with-rtsopts=-N  Main.hs
+docker build -f Dockerfile -t haskell-privilege-test .
